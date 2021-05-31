@@ -1,7 +1,9 @@
 <div class="container">
-  <ol class="list-unstyled row">
-    <li *ngFor="let photo of photos" class="col-3">
-      <app-photo [url]="photo.url" [description]="photo.description"></app-photo>
-    </li>
-  </ol>
+  <div class="text-center mt-3 mb-3 ">
+    <form>
+      <input class="form-control" type="search" placeholder="search..." (keyup)="debounce.next($event.target.value)" autofocus>
+    </form>
+  </div>
 </div>
+
+<app-photos [photos]="photos | filterByDescription: filter"> </app-photos>
