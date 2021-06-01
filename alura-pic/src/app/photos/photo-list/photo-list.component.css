@@ -1,0 +1,20 @@
+form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 300px;
+  align-content: center;
+}
+
+form i{
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: rgb(10, 97, 228);
+  color: white;
+  border-radius: 5px 0 0 5px;
+}
+
+form input{
+  border-radius: 0 5px 5px 0;
+}
