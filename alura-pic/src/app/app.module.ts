@@ -1,11 +1,14 @@
-import { ErrorsModule } from './errors/errors.module';
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { PhotosModule } from './photos/photos.module';
 import { LoadButtonComponent } from './photos/photo-list/load-button/load-button.component';
+
+import { ErrorsModule } from './errors/errors.module';
+import { HomeModule } from './home/home.module';
+import { PhotosModule } from './photos/photos.module';
+import { CardModule } from './shared/components/card/card.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,8 @@ import { LoadButtonComponent } from './photos/photo-list/load-button/load-button
     BrowserModule,
     PhotosModule,
     AppRoutingModule,
-    ErrorsModule
+    ErrorsModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
