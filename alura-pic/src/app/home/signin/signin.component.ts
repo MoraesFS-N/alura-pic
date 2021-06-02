@@ -1,7 +1,9 @@
+import { PlatformDetectorService } from './../../core/platform-detector/platform-detector.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/auth.service';
+import { AuthService } from 'src/app/core/auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   templateUrl: './signin.component.html',
@@ -19,7 +21,8 @@ export class SignInComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    // private render: Renderer2
+    private platformDetectorService: PlatformDetectorService,
+    private toast: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -39,11 +42,15 @@ export class SignInComponent implements OnInit {
     this.authService
       .authenticate(userName, password)
       .subscribe(
-        () => this.router.navigate(['user', userName]),
-        err => {
+        () => {
+          this.router.navigate(['user', userName])
+          this.toast.success('Login Efetuado','Success')
+        },
+        (err) => {
           console.log(err);
           this.loginForm.reset();
-          this.userNameInput.nativeElement.focus();
+          this.platformDetectorService.isPlatformBrowser() && this.userNameInput.nativeElement.focus();
+          this.toast.error('Usuário ou senha incorretos', 'Error');
         }
      )
   }
