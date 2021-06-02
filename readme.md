@@ -28,7 +28,7 @@ return this.http.post(`${API_URL}/user/login`, {
             Após isso são passados 3 parâmetros na função POST ('url da api e rota',{dados a serem passados, parâmetros},'OPCIONAL: configuração da resposta da requisição')
          </li>
          <li>
-            A opção passada na configuração resposta serve para tornar o parâmetro `x-access-token` acessível
+            A opção passada na configuração resposta serve para tornar o parâmetro x-access-token acessível
          </li>
     </ul>
 </p>

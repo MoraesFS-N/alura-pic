@@ -1,3 +1,4 @@
+import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,7 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
     ErrorsModule,
     HomeModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
