@@ -9,6 +9,7 @@ import { PhotosComponent } from './photos/photos.component';
 import { PhotoListComponent } from "./photo-list.component";
 import { CardModule } from 'src/app/shared/components/card/card.module';
 import { DarkenHoverModule } from 'src/app/shared/directives/darken-on-hover/darken-on-hover.module';
+import { CoreModule } from "src/app/core/core.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DarkenHoverModule } from 'src/app/shared/directives/darken-on-hover/dar
     CommonModule,
     PhotoModule,
     CardModule,
-    DarkenHoverModule
+    DarkenHoverModule,
+    CoreModule
   ]
 })
 

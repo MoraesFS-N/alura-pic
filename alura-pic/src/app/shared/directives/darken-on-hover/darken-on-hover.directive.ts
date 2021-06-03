@@ -17,6 +17,7 @@ export class DarkenOnHoverDirective{
   darkenOn(){
 
     this.render.setStyle(this.el.nativeElement, 'filter', `brightness(${this.brightness})`);
+    this.render.setStyle(this.el.nativeElement, 'transition', '200ms');
   }
 
 

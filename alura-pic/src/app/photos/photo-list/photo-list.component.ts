@@ -13,7 +13,7 @@ export class PhotoListComponent implements OnInit {
 
   photos: Photo[] = [];
   filter: string = '';
-  hasMore: boolean = false;
+  hasMore: boolean = true;
   currentPage: number = 1;
   userName: string = '';
 
@@ -37,6 +37,6 @@ export class PhotoListComponent implements OnInit {
             this.photos = this.photos.concat(photos);
             if (!photos.length) this.hasMore = false;
 
-       });
+      });
   }
 }
