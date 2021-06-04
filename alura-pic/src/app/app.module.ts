@@ -20,12 +20,11 @@ import { ToastrModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     PhotosModule,
-    AppRoutingModule,
     ErrorsModule,
-    HomeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    CoreModule
+    CoreModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
