@@ -52,6 +52,6 @@ export class UserService{
 
   getUserName(){
 
-    return this.getUserName;
+    return this.userName;
   }
 }

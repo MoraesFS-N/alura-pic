@@ -1,0 +1,87 @@
+<section class="container">
+  <div id="div-left">
+
+    <img src="../../../assets/img/signup.svg" alt="">
+
+  </div>
+
+  <div [formGroup]="signupForm" id="div-right">
+
+        <h4 class="text-center"> Register to embrace a new world!</h4>
+
+        <form class="form mt-4">
+            <div class="form-group mb-3">
+                <input formControlName="email"  placeholder="Email" class="form-control" autofocus >
+                <app-vmessage
+                      *ngIf="signupForm.get('email').errors?.required"
+                      text="Email is required!">
+                </app-vmessage>
+                <app-vmessage
+                      *ngIf="signupForm.get('email').errors?.email"
+                      text="Email is invalid!">
+                </app-vmessage>
+            </div>
+
+            <div class="form-group mb-3">
+                <input formControlName="fullName" placeholder="Full name" class="form-control">
+                <app-vmessage
+                      *ngIf="signupForm.get('fullName').errors?.required"
+                      text="Fullname is required!">
+                </app-vmessage>
+                <app-vmessage
+                      *ngIf="signupForm.get('fullName').errors?.minlength"
+                      text="Minimun is 10!">
+                </app-vmessage>
+                <app-vmessage
+                      *ngIf="signupForm.get('fullName').errors?.maxlength"
+                      text="Maximum length is 40!">
+                </app-vmessage>
+            </div>
+
+            <div class="form-group mb-3">
+                <input formControlName="userName" placeholder="User name" class="form-control">
+                <app-vmessage
+                      *ngIf="signupForm.get('userName').errors?.required"
+                      text="Username is required!">
+                </app-vmessage>
+                <app-vmessage
+                      *ngIf="signupForm.get('userName').errors?.minlength"
+                      text="Minimun is 10!">
+                </app-vmessage>
+                <app-vmessage
+                      *ngIf="signupForm.get('userName').errors?.maxlength"
+                      text="Maximum length is 40!">
+                </app-vmessage>
+                <app-vmessage
+                      *ngIf="signupForm.get('userName').errors?.pattern"
+                      text="Must be lowercase!">
+                </app-vmessage>
+            </div>
+
+            <div class="form-group mb-3">
+                <input formControlName="password" type="Password" placeholder="Password" class="form-control">
+                <app-vmessage
+                      *ngIf="signupForm.get('password').errors?.required"
+                      text="Password is required!">
+                </app-vmessage>
+                <app-vmessage
+                      *ngIf="signupForm.get('password').errors?.minlength"
+                      text="Minimun is 8!">
+                </app-vmessage>
+                <app-vmessage
+                      *ngIf="signupForm.get('password').errors?.maxlength"
+                      text="Maximum length is 16!">
+                </app-vmessage>
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary btn-block">Register</button>
+            </div>
+            <p>Already a user?<a [routerLink]="['']"> Sign In!</a></p>
+        </form>
+
+
+  </div>
+</section>
+
+
+

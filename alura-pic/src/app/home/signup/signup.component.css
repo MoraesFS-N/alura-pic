@@ -1,0 +1,26 @@
+section{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 100px;
+}
+
+section #div-left img{
+
+  width: 70%;
+}
+
+section #div-right h4{
+
+  margin-bottom: 20px;
+}
+
+section #div-right form p{
+  margin-top: 15px;
+  text-align: center;
+}
+
+section #div-right form p a {
+
+  text-decoration: none;
+}

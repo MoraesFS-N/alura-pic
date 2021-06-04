@@ -1,5 +1,21 @@
-div{
-margin-top: 5px;
+.vmessage{
+  display: flex;
+  margin-top: 5px;
+  color: red;
+  height: 30px;
+  text-align: center;
+  width:400px;
+}
+
+.vmessage i{
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.vmessage p{
+  line-height: center;
+  margin-left: 10px;
 }
 
 
