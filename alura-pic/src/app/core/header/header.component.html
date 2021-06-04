@@ -3,10 +3,19 @@
   <div class="container">
     <nav class="navbar navbar-light bg-white">
       <a class="navbar-brand">AluraPIC</a>
-      <div>
+
+      <div *ngIf="(user$ | async) as user; else login">
         <i class="fa fa-user-circle"></i>
-        <a class="m-2">{{ user?.name }}</a>
+        <a class="m-2">{{ user.name }}</a>
+        <a (click)="logout()" >(Logout)</a>
       </div>
+
+      <ng-template #login>
+        <span class="navbar-brand">
+        <a [routerLink]="['']"> Please, login</a>
+        </span>
+      </ng-template>
+
     </nav>
   </div>
 </header>
