@@ -10,6 +10,7 @@ import { PhotoListComponent } from "./photo-list.component";
 import { CardModule } from 'src/app/shared/components/card/card.module';
 import { DarkenHoverModule } from 'src/app/shared/directives/darken-on-hover/darken-on-hover.module';
 import { CoreModule } from "src/app/core/core.module";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CoreModule } from "src/app/core/core.module";
     PhotoModule,
     CardModule,
     DarkenHoverModule,
-    CoreModule
+    CoreModule,
+    RouterModule
   ]
 })
 

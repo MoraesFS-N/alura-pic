@@ -1,0 +1,7 @@
+.container{
+  margin-top: 20px;
+}
+
+.break-word{
+  word-break: break-all;
+}
