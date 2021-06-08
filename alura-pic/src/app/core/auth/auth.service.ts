@@ -3,8 +3,9 @@ import { TokenService } from './../token/token.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from "rxjs/operators";
+import { environment } from 'src/environments/environment';
 
-const API_URL = 'http://localhost:3000'
+const API = environment.ApiUrl;
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class AuthService {
 
   authenticate(userName: string, password: string){
 
-  return this.http.post(`${API_URL}/user/login`, {
+  return this.http.post(`${API}/user/login`, {
       userName,
       password
     }, {observe: 'response'})
