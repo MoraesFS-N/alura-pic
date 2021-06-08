@@ -9,7 +9,7 @@ import { UserService } from 'src/app/core/user/user.service';
 export class ShowIfLoggedDirective implements OnInit{
 
   constructor(
-    private element: ElementRef,
+    private element: ElementRef<any>,
     private renderer: Renderer2,
     private userService: UserService
   ) {}
