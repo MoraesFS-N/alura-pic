@@ -2,12 +2,28 @@
 <header class="fixed-top">
   <div class="container">
     <nav class="navbar navbar-light bg-white">
-      <a class="navbar-brand">AluraPIC</a>
+      <a class="navbar-brand">
+        <i tabindex="0" (keyup.space)="menu.toggle()" class="fa fa-bars mr-2" (click)="menu.toggle()"  ></i>
+        AluraPIC
+      </a>
 
-      <div *ngIf="(user$ | async) as user; else login">
+      <app-menu #menu>
+        <ul class="list-unstyled" >
+            <li>
+              <a showIfLogged [routerLink]="['p','add']"> Upload </a>
+            </li>
+            <li>
+              <a [routerLink]>
+
+              </a>
+            </li>
+        </ul>
+      </app-menu>
+
+      <div class="flex" *ngIf="(user$ | async) as user; else login">
         <i class="fa fa-user-circle"></i>
         <a class="m-2">{{ user.name }}</a>
-        <a (click)="logout()" >(Logout)</a>
+        <a class="exit"  (click)="logout()" ><i class="fa fa-power-off mr2"></i></a>
       </div>
 
       <ng-template #login>
@@ -16,8 +32,8 @@
         </span>
       </ng-template>
     </nav>
-    <div class="fixed-top">
-      <app-loading></app-loading>
-    </div>
+  </div>
+  <div class="fixed-top">
+    <app-loading></app-loading>
   </div>
 </header>
