@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Photo } from '../photo/photo';
 import { Observable } from 'rxjs';
+import { UserService } from 'src/app/core/user/user.service';
 
 @Component({
   selector: 'app-photo-details',
@@ -19,7 +20,9 @@ export class PhotoDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private photoService: PhotoService,
     private router: Router,
-    private toast: ToastrService) {}
+    private toast: ToastrService,
+    private userService: UserService
+    ) {}
 
   ngOnInit(): void {
 
@@ -37,7 +40,7 @@ export class PhotoDetailsComponent implements OnInit {
 
     this.photoService.removePhoto(this.photoId)
       .subscribe(() => {
-        this.router.navigate(['']);
+        this.router.navigate(['/user', this.userService.getUserName()], { replaceUrl: true });
         this.toast.success('Imagem removida com sucesso')
       })
   }

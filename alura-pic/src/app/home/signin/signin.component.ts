@@ -1,7 +1,7 @@
 import { PlatformDetectorService } from './../../core/platform-detector/platform-detector.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SignInComponent implements OnInit {
 
-
+  fromUrl: string;
   loginForm: FormGroup;
 
   @ViewChild('userNameInput') userNameInput: ElementRef<HTMLInputElement>;
@@ -22,10 +22,17 @@ export class SignInComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private platformDetectorService: PlatformDetectorService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+
+    this.activatedRoute.queryParams
+      .subscribe(params => {
+        this.fromUrl = params.fromUrl
+      }
+    );
 
     this.loginForm = this.formBuilder.group({
       userName: ['', Validators.required],
@@ -36,13 +43,20 @@ export class SignInComponent implements OnInit {
 
   login(){
 
-      const userName = this.loginForm.get('userName').value;
-      const password = this.loginForm.get('password').value;
+    const userName = this.loginForm.get('userName').value;
+    const password = this.loginForm.get('password').value;
 
     this.authService
       .authenticate(userName, password)
       .subscribe(
         () => {
+
+          if (this.fromUrl) {
+            this.router.navigateByUrl(this.fromUrl);
+          } else {
+            this.router.navigate(['user', userName])
+          }
+
           this.router.navigate(['user', userName])
           this.toast.success('Login Efetuado','Success')
         },
