@@ -1,3 +1,9 @@
 .container{
   margin-top: 20px;
 }
+
+.bar-icons{
+  display: flex;
+  justify-content: space-between;
+
+}
